@@ -1,0 +1,241 @@
+\documentclass[11pt]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[danish]{babel}        % Use English headings, date format.
+\usepackage{a4wide}               % A4 (DIN format).
+\usepackage[hidelinks]{hyperref}  % Enable direct links in PDF (e.g. for data sets)
+
+\textheight=1.04\textheight
+\textwidth=1.10\textwidth
+\hoffset=-0.05\textwidth
+\leftmargin=-0.18\textwidth
+\headsep=0.0pt
+\headheight=0.0pt
+
+\vfuzz2pt   % Don't report over-full v-boxes if over-edge is small
+\hfuzz10pt  % Don't report over-full h-boxes if over-edge is smallish
+
+\newcommand{\half}{\mbox{$\frac{1}{2}$}}
+
+\begin{document}
+%\pagestyle{empty}
+
+%----------------------------------------------------------------------------
+\noindent
+University of Copenhagen \hfill
+Niels Bohr Institute, \today \par
+\vspace{-2ex}
+\noindent
+\hrulefill
+
+\vspace{1ex}
+\begin{center}
+{\bf {\Huge Applied Statistics}}\\
+\vspace{1ex}
+{\large Exam in Applied Statistics 2023/24}
+\end{center}
+
+%----------------------------------------------------------------------------
+\vspace{0ex}
+\noindent
+This take-home exam was distributed Thursday the 18th of January 2024 at 08:00. A solution in PDF format must be submitted at \texttt{\bf www.eksamen.ku.dk by 20:00 Friday the 19th}, along with all code used to work out your solutions (as appendix). Links to data files can also be found on the course webpage and github. Working in groups or discussing the problems with others is {\bf NOT} allowed.
+
+\begin{center}
+  Thank you for all your hard work, Azzurra, Arnau, Thomas, Gaia, Mathias, \& Troels.
+\end{center}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+\hrulefill\\
+\emph{Science may be described as the art of systematic oversimplification.}\\
+  \phantom{foobar} \hfill [Karl Popper, Austrian/British philosopher 1902-1994]\\[-2ex]
+
+  
+%----------------------------------------------------------------------------
+\vspace{-2ex}
+\noindent
+\hrulefill
+
+\vspace{4ex}
+\noindent
+{\bf I -- Distributions and probabilities:}
+\vspace*{-1ex}
+\begin{description}
+  \item[1.1] (6 points)
+    An electronic device depends on three components each with independent probabilities 0.009, 0.016, and 0.027 of
+    failing per year.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item What is the probability that the device will {\bf not} fail in the first year?
+    \item After how many years is the probability of failure greater than 50\%?
+  \end{itemize}
+%
+  \item[1.2] (8 points)
+  A store has 52.8 customers/day, and considers the top 20\% busiest days to be\ldots busy!
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item What distribution should the number of daily customers follow and why?
+    \item Discuss what number of customers exactly constitutes a busy day.
+    \item What is the average number of customers on a busy day?
+  \end{itemize}
+\end{description}
+
+
+
+
+
+%----------------------------------------------------------------------------
+
+\vspace{2ex}
+\noindent
+{\bf II -- Error propagation:}
+\vspace*{-1ex}
+\begin{description}
+\item[2.1] (10 points)
+  You make nine measurements of the speed of sound in water, and obtain as follows:
+  \vspace*{-2ex}
+  \begin{center}
+  \begin{tabular}{lccccccccc}
+    \hline
+    Speed of sound (in m/s)       &1532    &1458    &1499    &1394    &1432    &1565    &1474    &1440    &1507\\
+    Uncertainty (in m/s)          &67      &55      &74      &129     &84      &19      &10      &17      &14\\
+    \hline
+  \end{tabular}
+  \end{center}
+  \vspace*{-3ex}
+  \begin{itemize}
+    \item What is the combined result and uncertainty of all your measurements?
+    \item How much does adding the first five measurements improve the precision compared to the last four?
+    \item Are your measurements consistent with each other? If not, argue for an updated estimate.
+    \item The speed of sound in water is $1481 \mbox{m/s}$. Does your result agree with this value?
+  \end{itemize}
+%
+\item[2.2] (8 points)
+  A mass is moving in a damped harmonic oscillator with position $x(t) = A \exp(-\gamma t) \cos(\omega t)$
+  as a function of time $t$, where $A = 1.01 \pm 0.19$, $\gamma = 0.12 \pm 0.05$, and $\omega = 0.47 \pm 0.06$.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item At $t = 1$, calculate the uncertainty in position $x$.
+    \item Calculate the uncertainty in $x$ as a function of $t$ for each of the three variables, and comment on
+      which variables dominate the uncertianty during which periods in time.
+  \end{itemize}
+\end{description}
+
+
+
+%----------------------------------------------------------------------------
+
+\newpage
+\noindent
+{\bf III -- Simulation / Monte Carlo:}
+\vspace*{-1ex}
+\begin{description}
+%
+  \item[3.1] (10 points)
+    You shoot a penalty, and the probability of scoring depends on the position $x$ (in m) you hit, as
+    $p_{\mbox{\tiny score}} = |x| / 4~\mbox{m}$ for $|x| < 4~\mbox{m}$ and zero otherwise (outside goal).
+    Assume the ball hits the goal where you aim with an uncertainty of one meter.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item What is the chance of scoring, if you aim at $x = 2.5$m?
+    \item Where should you aim to have the highest probability of scoring?
+  \end{itemize}
+%
+  \item[3.2] (10 points) Consider the PDF $f(x) = C_{\mbox{\tiny PDF}} (tan^{-1}(x)+\pi/2)$ with $x \in [-3,3]$.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Determine $C_{\mbox{\tiny PDF}}$ and generate 100 random numbers follow $f(x)$.
+    \item Explain how you would fit these data and do so. Does your fit values for $C$ match $C_{\mbox{\tiny PDF}}$?
+  \end{itemize}
+\end{description}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+{\bf IV -- Statistical tests:}
+\vspace*{-1ex}
+\begin{description}
+\item[4.1] (10 points)
+  The file \href{http://www.nbi.dk/~petersen/data\_LargestPopulation.csv}{\bf www.nbi.dk/$\sim$petersen/data\_LargestPopulation.csv}
+  contains data on the Indian and Chinese population each year in the period 1960-2021.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Linearly fit the Indian population 1963-1973, and estimate the data point uncertainty.
+    \item Assuming an uncertainty of $\pm$1000000 on all data points, model the population developments
+      and give your best estimate of when the Indian population overtakes the Chinese.
+  \end{itemize}
+%
+\item[4.2] (5 points)
+  A medical experiment is testing if a drug has a specific side effect. Out of 24 persons taking the drug,
+  10 had the side effect. For 24 other persons getting a placebo, only 4 had the side effect. Would you
+  claim that the drug has this side effect?
+%
+\item[4.3] (5 points)
+  Smartphone producer claims that their phones (A) have a battery lifetime that is significantly longer than that of a
+  rival phone (B). You measure the lifetime of the batteries (in hours) five times for each brand (table below).
+  Test if the claim is reasonable.\\[-4ex]
+  \begin{center}
+  \begin{tabular}{|lccccc|lccccc|}
+    \hline
+      A:   &28.9  &26.4  &22.8  &27.3  &25.9  &B:   &22.4  &21.3  &25.1  &24.8  &22.5\\
+    \hline
+  \end{tabular}
+  \end{center}
+
+\end{description}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+{\bf V -- Fitting data:}
+\vspace*{-1ex}
+\begin{description}
+\item[5.1] (18 points)
+  The file \href{http://www.nbi.dk/~petersen/data\_SignalDetection.csv}{\bf www.nbi.dk/$\sim$petersen/data\_SignalDetection.csv}
+  contains 120000 entries with values of phase ($P$), resonance ($R$), frequency ($\nu$), and type.
+  In the first 100000 entries (control sample) it is known if the measurements are signal (1) or noise (0).
+  In the last 20000 entries (real sample) this is unknown.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Plot the control sample frequency distribution. Fit the observed H-peak at $\nu = 1.42~\mbox{GHz}$.
+    \item Quantify how well you can separate signal from noise using the variables $P$ and $R$.
+    \item Selecting entries based only on $P$ and $R$, how significant can you get the H-peak fit to be?
+    \item Plot the real data frequency distribution, and search for a peak in the range [0.1,1.0] GHz.
+    \item How many signal entries do you estimate there to be in the peak? Do you find it significant?
+    \item Correcting for the signal selection efficiency when using $P$ and $R$, how many signal entries
+      do you estimate there was in the data originally?
+  \end{itemize}
+%
+\item[5.2] (10 points)
+  The file
+  \href{http://www.nbi.dk/~petersen/data\_DecayTimes.csv}{\bf www.nbi.dk/$\sim$petersen/data\_DecayTimes.csv}
+  contains the measured decay times ($t_i$ in $s$) of a Bohrium isotope. The true decay times follow an exponential function,
+  but the measurement of the decay times given have a Gaussian resolution $G(0,\sigma)$ (thus no bias).
+  \vspace*{-4ex}
+  \begin{itemize}
+    \item Plot the distribution of decay times, and calculate the mean and median with uncertainty.
+    \item Give a rough estimate of the decay time $\tau$ from fitting the high-$t$ tail of the distribution.
+    \item Fit the entire distribution, and (re-)assess the estimated values of $\tau$ and $\sigma$.
+  \end{itemize}
+\end{description}
+
+\vspace*{-2ex}
+\noindent
+\hrulefill\\
+\emph{Don't worry too much about statistics! Just tell us what you do, and do what you tell us.}\\
+  \phantom{foobar} \hfill [Roger Barlow, ICHEP conference 2006, Moscow]\\[-2ex]
+
+
+%----------------------------------------------------------------------------
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
